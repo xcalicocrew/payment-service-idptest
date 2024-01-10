@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: Component
+  lifecycle: dev,prod
+  owner: Field_Engineering
+  system: DevX_Demo
+  providesApis:
+    - payment
+metadata:
+  name: payment-service-idptest
+  description: Payment Service used for SE Demos
+  tags: 
+    - java
+  annotations:
+    harness.io/project-url: https://app.harness.io/ng/account/6_vVHzo9Qeu9fXvj-AcbCQ/admin/orgs/default/projects/DevX_Demo/details
+    harness.io/cd-serviceId: paymentservicesrm_dev
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: xcalicocrew/payment-service-idptest
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: payment-api
+  description: "Payment Service API"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: Field_Engineering
+  definition:
+    $text: ./catalog-api-info.yaml  # Path to the OpenAPI specification
